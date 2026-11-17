@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Base styles (replaces the old reset.scss + Bootstrap "reboot")
+------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+  }
+
+  /* Heading sizes (same scale the Bootstrap version used) */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  h1 { font-size: calc(1.375rem + 1.5vw); }
+  h2 { font-size: calc(1.325rem + 0.9vw); }
+  h3 { font-size: calc(1.3rem + 0.6vw); }
+  h4 { font-size: calc(1.275rem + 0.3vw); }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1rem; }
+  @media (min-width: 1200px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  strong {
+    font-weight: bolder;
+  }
+
+  small {
+    font-size: 0.875em;
+  }
+
+  /* Pink text selection */
+  ::selection {
+    background: #ff589e;
+    color: #fff;
+  }
+
+  /* Custom purple scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #8261ee #fff;
+  }
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #8261ee;
+    border-radius: 7px;
+    border: 3px solid #fff;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Small reusable classes (built from Tailwind utilities)
+------------------------------------------------------------------- */
+@layer components {
+  /* Centered page container (same widths as Bootstrap's .container) */
+  .site-container {
+    @apply mx-auto w-full px-3 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px];
+  }
+
+  /* Purple pill button used in Blog / Pricing / Contact */
+  .btn-softy {
+    @apply inline-block cursor-pointer rounded-softy border-0 bg-purple px-5 py-2.5 text-center text-white transition-all duration-300 ease-in-out hover:bg-pink;
+  }
+}
