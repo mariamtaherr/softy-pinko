@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-    base: '/softy-pinko/'
+  // GitHub Pages uses the repository subpath; Vercel serves from the domain root.
+  base: process.env.GITHUB_ACTIONS ? '/softy-pinko/' : '/',
 })
